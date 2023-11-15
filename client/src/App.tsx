@@ -7,10 +7,11 @@ import Router from "./routes/router";
 function App() {
   return (
     <>
-      <ErrorBoundary FallbackComponent={ErrorFallBack}
-      <BrowserRouter>
-        <Router />
-      </BrowserRouter>
+      <ErrorBoundary FallbackComponent={ErrorFallBack}>
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>
+      </ErrorBoundary>
     </>
   );
 }
