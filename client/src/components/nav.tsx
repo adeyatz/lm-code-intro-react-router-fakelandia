@@ -7,7 +7,7 @@ const Nav: React.FC = () => (
         <NavLink
           to="/"
           style={({ isActive }) => ({
-            color: isActive ? "greenyellow" : "blue",
+            color: isActive ? "green" : "blue",
           })}
         >
           Home
@@ -15,11 +15,25 @@ const Nav: React.FC = () => (
       </div>
 
       <div className="nav-menu">
-        <NavLink to="/misdemeanour">Misdemeanours</NavLink>
+        <NavLink
+          to="/misdemeanour"
+          style={({ isActive }) => ({
+            color: isActive ? "green" : "blue",
+          })}
+        >
+          Misdemeanours
+        </NavLink>
       </div>
 
       <div className="nav-menu">
-        <NavLink to="/confession">Confess To Us</NavLink>
+        <NavLink
+          to="/confession"
+          style={({ isActive }) => ({
+            color: isActive ? "green" : "blue",
+          })}
+        >
+          Confess To Us
+        </NavLink>
       </div>
     </nav>
   </>
