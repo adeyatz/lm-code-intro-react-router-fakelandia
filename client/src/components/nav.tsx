@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 const Nav: React.FC = () => (
   <>
     <nav style={{ display: "flex", padding: "5px" }}>
-      <div>
+      <div className="nav-menu">
         <NavLink
           to="/"
           style={({ isActive }) => ({
@@ -14,11 +14,11 @@ const Nav: React.FC = () => (
         </NavLink>
       </div>
 
-      <div>
+      <div className="nav-menu">
         <NavLink to="/misdemeanour">Misdemeanours</NavLink>
       </div>
 
-      <div>
+      <div className="nav-menu">
         <NavLink to="/confession">Confess To Us</NavLink>
       </div>
     </nav>

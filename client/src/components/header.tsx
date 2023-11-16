@@ -3,7 +3,11 @@ import Nav from "./nav";
 const Header: React.FC = () => {
   return (
     <>
-      Fakelandia Justice Department
+      Fakelandia
+      <br />
+      Justice
+      <br />
+      Department
       <img
         src="/src/assets/fakelandia.png"
         alt="Here should be a header image"
