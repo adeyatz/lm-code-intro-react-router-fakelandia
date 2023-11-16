@@ -1,4 +1,8 @@
 const Footer: React.FC = () => {
-  return <>footer</>;
+  return (
+    <>
+      <p>&copy;Adrian Yates</p>
+    </>
+  );
 };
 export default Footer;

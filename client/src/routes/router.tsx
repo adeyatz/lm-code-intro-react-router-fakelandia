@@ -9,8 +9,8 @@ export const Router: React.FC = () => (
   <Routes>
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
-      <Route path="/misdemeanour" element={<Misdemeanour />} />
-      <Route path="/confession" element={<Confession />} />
+      <Route path="misdemeanour" element={<Misdemeanour />} />
+      <Route path="confession" element={<Confession />} />
       <Route path="*" element={<NotFound />} />
     </Route>
   </Routes>
