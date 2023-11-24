@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "../components/home";
-import Confession from "../components/confession";
-import Misdemeanour from "../components/misdemeanour";
-import NotFound from "../components/not-found";
-import Layout from "../components/layout";
+import Home from "../components/pages/home";
+import Confession from "../components/pages/confession";
+import Misdemeanour from "../components/pages/misdemeanour";
+import NotFound from "../components/pages/not-found";
+import Layout from "../components/layout/layout";
 
 export const Router: React.FC = () => (
   <Routes>
