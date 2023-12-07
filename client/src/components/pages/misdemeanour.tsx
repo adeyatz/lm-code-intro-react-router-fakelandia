@@ -18,6 +18,17 @@ const MisdemeanourPage: React.FC = () => {
     date: "21 March 2021",
   };
 
+  const testMisdemeanours = [
+    testMisdemeamour,
+    testMisdemeamour,
+    testMisdemeamour,
+    testMisdemeamour,
+    testMisdemeamour,
+    testMisdemeamour,
+    testMisdemeamour,
+    testMisdemeamour,
+  ];
+
   return (
     <>
       <MisdemeanourFilter
@@ -25,16 +36,13 @@ const MisdemeanourPage: React.FC = () => {
         filterValue={filterValue}
       />
       <MisdemeanourList
-        misdemeanours={[
-          testMisdemeamour,
-          testMisdemeamour,
-          testMisdemeamour,
-          testMisdemeamour,
-          testMisdemeamour,
-          testMisdemeamour,
-          testMisdemeamour,
-          testMisdemeamour,
-        ]}
+        misdemeanours={
+          filterValue != OPTION_ALL
+            ? testMisdemeanours.filter(
+                (misdemeanour) => misdemeanour.misdemeanour === filterValue
+              )
+            : testMisdemeanours
+        }
       />
     </>
   );
