@@ -1,19 +1,28 @@
 import { MISDEMEANOURS } from "../../types/misdemeanours.types";
+import { useState } from "react";
 
 const MisdemeanourFilter: React.FC = () => {
+  const ALL = "all";
+  const [filterValue, setFilterValue] = useState(ALL);
+
   return (
     <div className="filter">
-      Filter
-      <select>
-        <option key="0">All</option>
-        <option key="1">{MISDEMEANOURS[0]}</option>
-        <option key="2">{MISDEMEANOURS[1]}</option>
-        <option key="3">{MISDEMEANOURS[2]}</option>
-        <option key="4">{MISDEMEANOURS[3]}</option>
-        {/* { MISDEMEANOURS.forEach ((kind) => (
-    <option key={kind.indexOf(kind)}>{kind}</option>)))
-} */}
-      </select>
+      <label>
+        Filter
+        <select
+          value={filterValue}
+          onChange={(e) => setFilterValue(e.target.value)}
+        >
+          <option key={0} value={ALL}>
+            {ALL}
+          </option>
+          {MISDEMEANOURS.map((option, index) => (
+            <option key={index + 1} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
+      </label>
     </div>
   );
 };
