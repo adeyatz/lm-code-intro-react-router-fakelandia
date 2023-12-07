@@ -5,29 +5,37 @@ import MisdemeanourList from "./misdemeanour-list";
 import { useState } from "react";
 
 const MisdemeanourPage: React.FC = () => {
-  const [filterValue, setFilterValue] = useState(OPTION_ALL);
+  const [filterValue, setFilterValue] = useState<string>(OPTION_ALL);
+
+  const typeZeroMisdemeamour: Misdemeanour = {
+    citizenId: 1234,
+    misdemeanour: MISDEMEANOURS[0],
+    date: "21 March 2021",
+  };
+  const typeOneMisdemeamour: Misdemeanour = {
+    citizenId: 5678,
+    misdemeanour: MISDEMEANOURS[1],
+    date: "1 Jan 1900",
+  };
+  const testMisdemeanours = [
+    typeZeroMisdemeamour,
+    typeZeroMisdemeamour,
+    typeZeroMisdemeamour,
+    typeZeroMisdemeamour,
+    typeOneMisdemeamour,
+    typeOneMisdemeamour,
+    typeOneMisdemeamour,
+    typeOneMisdemeamour,
+    typeOneMisdemeamour,
+  ];
+
+  const [getMisdemeanours, setMisdemeanours] =
+    useState<Misdemeanour[]>(testMisdemeanours);
 
   const handleFilterChange = (value: string) => {
     console.log(value);
     setFilterValue(value);
   };
-
-  const testMisdemeamour: Misdemeanour = {
-    citizenId: 1234,
-    misdemeanour: MISDEMEANOURS[0],
-    date: "21 March 2021",
-  };
-
-  const testMisdemeanours = [
-    testMisdemeamour,
-    testMisdemeamour,
-    testMisdemeamour,
-    testMisdemeamour,
-    testMisdemeamour,
-    testMisdemeamour,
-    testMisdemeamour,
-    testMisdemeamour,
-  ];
 
   return (
     <>
@@ -38,10 +46,10 @@ const MisdemeanourPage: React.FC = () => {
       <MisdemeanourList
         misdemeanours={
           filterValue != OPTION_ALL
-            ? testMisdemeanours.filter(
+            ? getMisdemeanours.filter(
                 (misdemeanour) => misdemeanour.misdemeanour === filterValue
               )
-            : testMisdemeanours
+            : getMisdemeanours
         }
       />
     </>

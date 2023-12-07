@@ -1,4 +1,4 @@
-const Home: React.FC = () => (
+const HomePage: React.FC = () => (
   <>
     <p>Welcome to the home of the Justice Department of Fakelandia</p>
     <p>
@@ -8,4 +8,4 @@ const Home: React.FC = () => (
     </p>
   </>
 );
-export default Home;
+export default HomePage;
