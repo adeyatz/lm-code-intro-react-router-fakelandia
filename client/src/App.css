@@ -18,6 +18,10 @@ header {
   border-bottom: 2px solid blue;
 }
 
+label {
+  padding: 10px;
+}
+
 .nav-menu {
   width: 200px;
 }
@@ -34,4 +38,19 @@ header {
   bottom: 0;
   color: white;
   width: 60vw;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  background-color: #2196f3;
+  padding: 10px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 1rem;
+  text-align: center;
 }
