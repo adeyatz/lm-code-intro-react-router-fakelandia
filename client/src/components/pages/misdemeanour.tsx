@@ -3,7 +3,6 @@ import MisdemeanourList from "./misdemeanour-list";
 
 const Misdemeanour: React.FC = () => (
   <>
-    Misdemeanour!
     <MisdemeanourFilter />
     <MisdemeanourList />
   </>
