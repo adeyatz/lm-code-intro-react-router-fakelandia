@@ -24,7 +24,18 @@ const MisdemeanourPage: React.FC = () => {
         setFilterValue={handleFilterChange}
         filterValue={filterValue}
       />
-      <MisdemeanourList misdemeanours={[testMisdemeamour, testMisdemeamour]} />
+      <MisdemeanourList
+        misdemeanours={[
+          testMisdemeamour,
+          testMisdemeamour,
+          testMisdemeamour,
+          testMisdemeamour,
+          testMisdemeamour,
+          testMisdemeamour,
+          testMisdemeamour,
+          testMisdemeamour,
+        ]}
+      />
     </>
   );
 };
