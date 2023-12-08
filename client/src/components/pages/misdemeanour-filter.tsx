@@ -6,6 +6,7 @@ const MisdemeanourFilter: React.FC<{
   filterValue: string;
   setFilterValue: (value: string) => void;
 }> = ({ filterValue, setFilterValue }) => {
+  const filterOptions = [OPTION_ALL, ...MISDEMEANOURS];
   return (
     <div className="filter">
       <label>
@@ -14,11 +15,8 @@ const MisdemeanourFilter: React.FC<{
           value={filterValue}
           onChange={(e) => setFilterValue(e.target.value)}
         >
-          <option key={0} value={OPTION_ALL}>
-            {OPTION_ALL}
-          </option>
-          {MISDEMEANOURS.map((option, index) => (
-            <option key={index + 1} value={option}>
+          {filterOptions.map((option, index) => (
+            <option key={index} value={option}>
               {option}
             </option>
           ))}
