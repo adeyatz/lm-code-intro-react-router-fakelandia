@@ -38,11 +38,11 @@ const MisdemeanourPage: React.FC = () => {
           <MisdemeanourHeader />
           <MisdemeanourList
             misdemeanours={
-              filterValue != OPTION_ALL
-                ? misdemeanours.filter(
+              filterValue === OPTION_ALL
+                ? misdemeanours
+                : misdemeanours.filter(
                     (misdemeanour) => misdemeanour.misdemeanour === filterValue
                   )
-                : misdemeanours
             }
           />
         </>
