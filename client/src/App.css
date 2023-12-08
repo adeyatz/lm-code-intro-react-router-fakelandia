@@ -19,9 +19,20 @@ header {
   border-bottom: 2px solid blue;
 }
 
-.filter {
+footer {
   background-color: cornflowerblue;
-  padding-top: 5px;
+  border-top: 2px solid blue;
+  position: fixed;
+  bottom: 0;
+  color: white;
+  width: 60vw;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 100px;
 }
 
 .nav-menu {
@@ -31,15 +42,6 @@ header {
 .fjp-title {
   padding-right: 50px;
   padding-left: 5px;
-}
-
-.footer {
-  background-color: cornflowerblue;
-  border-top: 2px solid blue;
-  position: fixed;
-  bottom: 0;
-  color: white;
-  width: 60vw;
 }
 
 .grid-header {
@@ -63,4 +65,9 @@ header {
   padding: 20px;
   font-size: 1rem;
   text-align: center;
+}
+
+.filter {
+  background-color: cornflowerblue;
+  padding-top: 5px;
 }
