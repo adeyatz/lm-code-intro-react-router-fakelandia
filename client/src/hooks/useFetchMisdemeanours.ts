@@ -27,7 +27,7 @@ export function useFetchMisdemeanours(endpoint: string) {
     }
 
     fetchData();
-  });
+  }, [endpoint]);
 
   return { misdemeanours, status };
 }
