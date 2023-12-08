@@ -25,19 +25,26 @@ const MisdemeanourList: React.FC<{ misdemeanours: Misdemeanour[] }> = ({
 };
 
 const addEmojiToMisdemeanour = (typeOfMisdemeanour: MisdemeanourKind) => {
+  let emoji: string;
+
   switch (typeOfMisdemeanour) {
     case "rudeness":
-      return typeOfMisdemeanour + " 🤪";
+      emoji = "🤪";
+      break;
 
     case "lift":
-      return typeOfMisdemeanour + " 🗣";
+      emoji = "🗣";
+      break;
 
     case "vegetables":
-      return typeOfMisdemeanour + " 🥗";
+      emoji = "🥗";
+      break;
 
     case "united":
-      return typeOfMisdemeanour + " 😈";
+      emoji = "😈";
+      break;
   }
+  return typeOfMisdemeanour + " " + emoji;
 };
 
 export default MisdemeanourList;
