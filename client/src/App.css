@@ -10,6 +10,7 @@
 p,
 body {
   font-family: cursive;
+  color: blue;
 }
 
 header {
@@ -18,8 +19,9 @@ header {
   border-bottom: 2px solid blue;
 }
 
-label {
-  border: 10px;
+.filter {
+  background-color: cornflowerblue;
+  padding-top: 5px;
 }
 
 .nav-menu {
@@ -40,11 +42,18 @@ label {
   width: 60vw;
 }
 
+.grid-header {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  background-color: cornflowerblue;
+  padding-top: 10px;
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto auto;
-  background-color: #2196f3;
-  padding: 10px;
+  background-color: cornflowerblue;
+  padding: 0;
   column-gap: 5px;
 }
 
