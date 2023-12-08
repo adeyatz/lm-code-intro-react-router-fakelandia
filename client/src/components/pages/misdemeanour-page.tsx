@@ -1,6 +1,7 @@
 import { OPTION_ALL } from "./misdemeanour-filter";
 import MisdemeanourFilter from "./misdemeanour-filter";
 import MisdemeanourList from "./misdemeanour-list";
+import { MisdemeanourHeader } from "./misdemeanour-headers";
 import { useFetchMisdemeanours } from "../../hooks/useFetchMisdemeanours";
 import { useState } from "react";
 
@@ -22,7 +23,10 @@ const MisdemeanourPage: React.FC = () => {
   return (
     <>
       {status === "Error" && (
-        <p style={{ color: "red" }}>Error Fetching Misdemeanours</p>
+        <>
+          <p style={{ color: "red" }}>Error Fetching Misdemeanours</p>
+          <button onClick={() => window.location.reload()}>Try again</button>
+        </>
       )}
       {status === "Loading" && <p>Loading Misdemeanours...</p>}
       {status === "Success" && (
@@ -31,6 +35,7 @@ const MisdemeanourPage: React.FC = () => {
             setFilterValue={handleFilterChange}
             filterValue={filterValue}
           />
+          <MisdemeanourHeader />
           <MisdemeanourList
             misdemeanours={
               filterValue != OPTION_ALL
