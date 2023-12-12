@@ -71,3 +71,10 @@ form {
   background-color: cornflowerblue;
   padding-top: 5px;
 }
+
+.hint {
+  font-size: small;
+  font-family: Arial, Helvetica, sans-serif;
+  color: grey;
+  font-style: italic;
+}
