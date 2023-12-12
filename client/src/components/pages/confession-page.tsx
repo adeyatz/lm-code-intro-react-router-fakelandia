@@ -4,6 +4,7 @@ import ConfessionDetail from "./confession-detail";
 import ConfessionReason from "./confession-reason";
 import ConfessionSubject from "./confession-subject";
 import { MISDEMEANOURS } from "../../types/misdemeanours.types";
+import validateConfessionSubject from "../../functions/validate-confession-subject";
 
 const ConfessionPage: React.FC = () => {
   const [subject, setSubject] = useState<string>("");
@@ -25,7 +26,11 @@ const ConfessionPage: React.FC = () => {
           Subject must be at least 5 characters (non special). Detail must be at
           least 30 character (any)
         </span>
-        <ConfessionSubject subject={subject} setSubject={setSubject} />
+        <ConfessionSubject
+          subject={subject}
+          setSubject={setSubject}
+          validate={validateConfessionSubject}
+        />
         <ConfessionReason reason={reason} setReason={setReason} />
         <ConfessionDetail detail={detail} setDetail={setDetail} />
         <ConfessButton />
