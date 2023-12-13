@@ -4,10 +4,11 @@ import ConfessionDetail from "./confession-detail";
 import ConfessionReason from "./confession-reason";
 import ConfessionSubject from "./confession-subject";
 import { MISDEMEANOURS } from "../../types/misdemeanours.types";
-import validateConfessionSubject from "../../functions/validate-confession-subject";
+// import validateConfessionSubject from "../../functions/validate-confession-subject";
 
 const ConfessionPage: React.FC = () => {
   const [subject, setSubject] = useState<string>("");
+  const [subjectValid, setSubjectValid] = useState<boolean>(false);
   const [reason, setReason] = useState<string>(MISDEMEANOURS[0]);
   const [detail, setDetail] = useState<string>("");
 
@@ -29,11 +30,11 @@ const ConfessionPage: React.FC = () => {
         <ConfessionSubject
           subject={subject}
           setSubject={setSubject}
-          validate={validateConfessionSubject}
+          setSubjectValid={setSubjectValid}
         />
         <ConfessionReason reason={reason} setReason={setReason} />
         <ConfessionDetail detail={detail} setDetail={setDetail} />
-        <ConfessButton />
+        <ConfessButton enabled={subjectValid} />
       </form>
     </>
   );

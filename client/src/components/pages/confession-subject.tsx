@@ -1,15 +1,17 @@
 interface subjectProps {
   subject: string;
-  setSubject(subect: string): void;
-  validate(subject: string): boolean;
+  setSubject(subject: string): void;
+  setSubjectValid(isValid: boolean): void;
 }
 
 const ConfessionSubject: React.FC<subjectProps> = ({
   subject,
   setSubject,
-  validate,
+  setSubjectValid,
 }) => {
-  const borderColour = validate(subject) ? "black" : "red";
+  const isValid = validateConfessionSubject(subject);
+  setSubjectValid(isValid);
+  const borderColour = isValid ? "black" : "red";
 
   return (
     <label>
@@ -23,6 +25,10 @@ const ConfessionSubject: React.FC<subjectProps> = ({
       />
     </label>
   );
+};
+
+const validateConfessionSubject = (subject: string): boolean => {
+  return !(subject.trim().length < 5 || subject.trim().match(/[^a-zA-Z0-9 ]/));
 };
 
 export default ConfessionSubject;
