@@ -35,8 +35,14 @@ form {
   padding-right: 100px;
 }
 
-input:focus {
-  border-color: red;
+label {
+  padding: 5px;
+}
+
+input,
+textarea,
+select {
+  margin-left: 10px;
 }
 
 .nav-menu {

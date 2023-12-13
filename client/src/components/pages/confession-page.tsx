@@ -4,13 +4,13 @@ import ConfessionDetail from "./confession-detail";
 import ConfessionReason from "./confession-reason";
 import ConfessionSubject from "./confession-subject";
 import { MISDEMEANOURS } from "../../types/misdemeanours.types";
-// import validateConfessionSubject from "../../functions/validate-confession-subject";
 
 const ConfessionPage: React.FC = () => {
   const [subject, setSubject] = useState<string>("");
   const [subjectValid, setSubjectValid] = useState<boolean>(false);
   const [reason, setReason] = useState<string>(MISDEMEANOURS[0]);
   const [detail, setDetail] = useState<string>("");
+  const [detailValid, setDetailValid] = useState<boolean>(false);
 
   return (
     <>
@@ -25,7 +25,7 @@ const ConfessionPage: React.FC = () => {
       <form>
         <span className="hint">
           Subject must be at least 5 characters (non special). Detail must be at
-          least 30 character (any)
+          least 30 characters (any)
         </span>
         <ConfessionSubject
           subject={subject}
@@ -33,8 +33,12 @@ const ConfessionPage: React.FC = () => {
           setSubjectValid={setSubjectValid}
         />
         <ConfessionReason reason={reason} setReason={setReason} />
-        <ConfessionDetail detail={detail} setDetail={setDetail} />
-        <ConfessButton enabled={subjectValid} />
+        <ConfessionDetail
+          detail={detail}
+          setDetail={setDetail}
+          setDetailValidity={setDetailValid}
+        />
+        <ConfessButton enabled={subjectValid && detailValid} />
       </form>
     </>
   );
