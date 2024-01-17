@@ -3,14 +3,28 @@ import ConfessButton from "./confess-button";
 import ConfessionDetail from "./confession-detail";
 import ConfessionReason from "./confession-reason";
 import ConfessionSubject from "./confession-subject";
-import { MISDEMEANOURS } from "../../types/misdemeanours.types";
+import ConfessionSubmission from "./confession-submission";
+import {
+  JustTalk,
+  MISDEMEANOURS,
+  MisdemeanourKind,
+} from "../../types/misdemeanours.types";
 
 const ConfessionPage: React.FC = () => {
   const [subject, setSubject] = useState<string>("");
   const [subjectValid, setSubjectValid] = useState<boolean>(false);
-  const [reason, setReason] = useState<string>(MISDEMEANOURS[0]);
+  const [reason, setReason] = useState<MisdemeanourKind | JustTalk>(
+    MISDEMEANOURS[0]
+  );
   const [detail, setDetail] = useState<string>("");
   const [detailValid, setDetailValid] = useState<boolean>(false);
+
+  const [submit, setSubmit] = useState<boolean>(false);
+
+  const processConfessionClick = () => {
+    // setSubmitted(true);
+    console.log("Sumbitting confession");
+  };
 
   return (
     <>
@@ -38,7 +52,14 @@ const ConfessionPage: React.FC = () => {
           setDetail={setDetail}
           setDetailValidity={setDetailValid}
         />
-        <ConfessButton enabled={subjectValid && detailValid} />
+        <ConfessButton
+          enabled={subjectValid && detailValid}
+          postConfession={processConfessionClick}
+        />
+        <ConfessionSubmission
+          submit={submit}
+          confession={{ subject: subject, details: detail, reason: reason }}
+        />
       </form>
     </>
   );

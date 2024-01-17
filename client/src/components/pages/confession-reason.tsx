@@ -1,8 +1,13 @@
-import { MISDEMEANOURS, JUST_TALK } from "../../types/misdemeanours.types";
+import {
+  MISDEMEANOURS,
+  JUST_TALK,
+  MisdemeanourKind,
+  JustTalk,
+} from "../../types/misdemeanours.types";
 
 interface reasonProps {
-  reason: string;
-  setReason(reason: string): void;
+  reason: MisdemeanourKind | JustTalk;
+  setReason(reason: MisdemeanourKind | JustTalk): void;
 }
 
 const ConfessionReason: React.FC<reasonProps> = ({ reason, setReason }) => {
@@ -10,7 +15,13 @@ const ConfessionReason: React.FC<reasonProps> = ({ reason, setReason }) => {
   return (
     <label>
       Reason
-      <select value={reason} onChange={(e) => setReason(e.target.value)}>
+      <select
+        value={reason}
+        id="reason"
+        onChange={(e) =>
+          setReason(e.target.value as MisdemeanourKind | JustTalk)
+        }
+      >
         {reasons.map((reason, index) => (
           <option key={index} value={reason}>
             {reason}

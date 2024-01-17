@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 interface detailProps {
   detail: string;
   setDetail(detail: string): void;
@@ -10,8 +12,11 @@ const ConfessionDetail: React.FC<detailProps> = ({
   setDetailValidity,
 }) => {
   const isValid = validateConfessionDetail(detail);
-  setDetailValidity(isValid);
   const borderColour = isValid ? "black" : "red";
+
+  useEffect(() => {
+    setDetailValidity(isValid);
+  }, [isValid, setDetailValidity]);
 
   return (
     <label>

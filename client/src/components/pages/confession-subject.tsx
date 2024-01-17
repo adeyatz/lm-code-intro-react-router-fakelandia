@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 interface subjectProps {
   subject: string;
   setSubject(subject: string): void;
@@ -10,8 +12,10 @@ const ConfessionSubject: React.FC<subjectProps> = ({
   setSubjectValid,
 }) => {
   const isValid = validateConfessionSubject(subject);
-  setSubjectValid(isValid);
   const borderColour = isValid ? "black" : "red";
+  useEffect(() => {
+    setSubjectValid(isValid);
+  }, [isValid, setSubjectValid]);
 
   return (
     <label>

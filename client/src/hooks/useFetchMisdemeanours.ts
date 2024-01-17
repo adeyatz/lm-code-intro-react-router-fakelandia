@@ -9,7 +9,7 @@ export function useFetchMisdemeanours(endpoint: string) {
 
   useEffect(() => {
     let ignore = false; // Using this flag should mean that although React calls the endpoint twice in Strict mode, hopefully its only rendered once!
-    async function fetchData() {
+    async function fetchMisdemeanours() {
       try {
         console.log("open ✔");
         const response = await fetch(endpoint);
@@ -30,7 +30,7 @@ export function useFetchMisdemeanours(endpoint: string) {
       }
     }
 
-    fetchData();
+    fetchMisdemeanours();
 
     return () => {
       ignore = true;
