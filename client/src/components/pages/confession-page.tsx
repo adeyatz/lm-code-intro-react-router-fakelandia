@@ -3,12 +3,15 @@ import ConfessButton from "./confess-button";
 import ConfessionDetail from "./confession-detail";
 import ConfessionReason from "./confession-reason";
 import ConfessionSubject from "./confession-subject";
-import ConfessionSubmission from "./confession-submission";
+
 import {
   JustTalk,
   MISDEMEANOURS,
   MisdemeanourKind,
 } from "../../types/misdemeanours.types";
+import { useConfessionForm } from "../../hooks/useConfessionForm";
+
+const END_POINT = `http://localhost:8080/api/confess/`;
 
 const ConfessionPage: React.FC = () => {
   const [subject, setSubject] = useState<string>("");
@@ -19,12 +22,25 @@ const ConfessionPage: React.FC = () => {
   const [detail, setDetail] = useState<string>("");
   const [detailValid, setDetailValid] = useState<boolean>(false);
 
-  const [submit, setSubmit] = useState<boolean>(false);
+  const { handleSubmit, status, message } = useConfessionForm();
 
-  const processConfessionClick = () => {
-    // setSubmitted(true);
-    console.log("Sumbitting confession");
-  };
+  if (status === "Success") {
+    return (
+      <>
+        <div>Thank you!</div>
+        <div>{message}</div>
+      </>
+    );
+  }
+
+  if (status === "Error") {
+    return (
+      <>
+        <div>Something bad happened!</div>
+        <div>{message}</div>
+      </>
+    );
+  }
 
   return (
     <>
@@ -36,7 +52,7 @@ const ConfessionPage: React.FC = () => {
         However, if you're just having a hard day and need to vent then <br />
         you're welome to contact us here too. Up to you!
       </p>
-      <form>
+      <form action={END_POINT} onSubmit={handleSubmit} method="POST">
         <span className="hint">
           Subject must be at least 5 characters (non special). Detail must be at
           least 30 characters (any)
@@ -52,14 +68,7 @@ const ConfessionPage: React.FC = () => {
           setDetail={setDetail}
           setDetailValidity={setDetailValid}
         />
-        <ConfessButton
-          enabled={subjectValid && detailValid}
-          postConfession={processConfessionClick}
-        />
-        <ConfessionSubmission
-          submit={submit}
-          confession={{ subject: subject, details: detail, reason: reason }}
-        />
+        <ConfessButton enabled={subjectValid && detailValid} />
       </form>
     </>
   );

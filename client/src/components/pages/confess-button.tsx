@@ -1,9 +1,6 @@
-const ConfessButton: React.FC<{ enabled: boolean; postConfession(): void }> = ({
-  enabled,
-  postConfession,
-}) => {
+const ConfessButton: React.FC<{ enabled: boolean }> = ({ enabled }) => {
   return enabled ? (
-    <button id="confess" type="submit" onClick={postConfession}>
+    <button id="confess" type="submit">
       Confess
     </button>
   ) : (
